@@ -14,9 +14,7 @@ export const ListResult = () => {
   useEffect(() => {
     Axios.get(`${URL_ADDRESS}/api/category`)
       .then((resp) => {
-        if (resp.statusText === "OK") {
-          setCategory(resp.data);
-        }
+        setCategory(resp.data);
       })
       .catch((err) => {
         console.log(err);
@@ -27,10 +25,8 @@ export const ListResult = () => {
     Axios.get(`${URL_ADDRESS}/api/users?CategoryId=${categoryId}`)
 
       .then((resp) => {
-        if (resp.statusText === "OK") {
-          console.log(resp.data);
-          setResults(resp.data);
-        }
+        console.log(resp.data);
+        setResults(resp.data);
       })
       .catch((err) => {
         if (err.response) {

@@ -10,9 +10,9 @@ export const ViewResult = ({ results }) => {
           <div className="resultTotal">
             <p className="voteText">Totals Votes:{result.total}</p>
             <p className="voteText">{result.name}</p>
-            <p>({result.faculty})</p>
+            <p>({result.matric})</p>
 
-            <p>({result.department})</p>
+            <p>({result.Category.name})</p>
           </div>
         </div>
       ))}

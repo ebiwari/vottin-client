@@ -105,13 +105,10 @@ export const Home = () => {
                 hanldeNomineesSubmit={hanldeNomineesSubmit}
               />
             )}
-
-            <ToastContainer />
           </div>
-
-          <ToastContainer />
         </>
       )}
+      <ToastContainer />
     </div>
   );
 };
