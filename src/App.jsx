@@ -17,9 +17,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<NomineeForm />} />
+          <Route path="/" element={<Home />} />
 
-          <Route path="/nominees" element={<Home />} />
+          <Route path="/nominees" element={<NomineeForm />} />
           <Route path="/result" element={<Result />} />
           <Route path="/listing" element={<ListResult />} />
 

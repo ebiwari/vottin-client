@@ -30,6 +30,7 @@ export const Home = () => {
 
   const handleCategorySubmit = (evt) => {
     evt.preventDefault();
+    toast("Enter your Voting Code");
     if (select.length > 0) {
       setStatus(true);
       Axios.get(`${URL_ADDRESS}/api/users?CategoryId=${select}`)
@@ -73,39 +74,44 @@ export const Home = () => {
 
   return (
     <div className="Home">
-      {status && (
+      {status ? (
         <div className="loading">
           <h1>Loading...</h1>
         </div>
+      ) : (
+        <>
+          <h1 className="logoText">FU Otuoke Election Portal</h1>
+          <form onSubmit={handleCategorySubmit}>
+            {category.length > 0 && (
+              <>
+                <select onChange={(evt) => setSelect(evt.target.value)}>
+                  <option>Select a Categry</option>
+                  {category.map((val) => (
+                    <option key={val.id} value={val.id}>
+                      {val.name}
+                    </option>
+                  ))}
+                </select>
+
+                <button type="submit">Get Nominees</button>
+              </>
+            )}
+          </form>
+
+          <div className="content">
+            {nominees.length > 0 && (
+              <Nominees
+                nominees={nominees}
+                hanldeNomineesSubmit={hanldeNomineesSubmit}
+              />
+            )}
+
+            <ToastContainer />
+          </div>
+
+          <ToastContainer />
+        </>
       )}
-      <h1 className="logoText">FU Otuoke Election Portal</h1>
-      <form onSubmit={handleCategorySubmit}>
-        {category.length > 0 && (
-          <>
-            <select onChange={(evt) => setSelect(evt.target.value)}>
-              <option>Select a Categry</option>
-              {category.map((val) => (
-                <option key={val.id} value={val.id}>
-                  {val.name}
-                </option>
-              ))}
-            </select>
-
-            <button type="submit">Get Nominees</button>
-          </>
-        )}
-      </form>
-
-      <div className="content">
-        {nominees.length > 0 && (
-          <Nominees
-            nominees={nominees}
-            hanldeNomineesSubmit={hanldeNomineesSubmit}
-          />
-        )}
-
-        <ToastContainer />
-      </div>
     </div>
   );
 };

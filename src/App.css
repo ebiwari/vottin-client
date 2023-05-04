@@ -57,6 +57,13 @@ label {
   color: var(--secondery-color);
 }
 
+.loading {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
