@@ -9,35 +9,45 @@ export const Home = () => {
   const [category, setCategory] = useState([]);
   const [nominees, setNominees] = useState([]);
   const [select, setSelect] = useState("");
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
     Axios.get(`${URL_ADDRESS}/api/category`)
       .then((resp) => {
-        console.log(resp);
+        setStatus(false);
         if (resp.statusText === "OK") {
           setCategory(resp.data);
         }
       })
       .catch((err) => {
-        console.log(err);
+        setStatus(false);
+        if (err.response) {
+          toast(err.response.data.error);
+        } else {
+          toast(err.message);
+        }
       });
-  }, []);
+  }, [nominees]);
 
   const handleCategorySubmit = (evt) => {
     evt.preventDefault();
     if (select.length > 0) {
+      setStatus(true);
       Axios.get(`${URL_ADDRESS}/api/users?CategoryId=${select}`)
         .then((resp) => {
-          console.log(resp);
+          setStatus(false);
           setNominees(resp.data);
         })
         .catch((err) => {
+          setStatus(false);
           if (err.response) {
             toast(err.response.data.error);
           } else {
             toast(err.message);
           }
         });
+    } else {
+      toast("Enter your Voting Code");
     }
   };
 
@@ -48,8 +58,9 @@ export const Home = () => {
     })
 
       .then((resp) => {
-        console.log(resp);
         toast("You have voted Successfully");
+        setNominees([]);
+        setCategory([]);
       })
       .catch((err) => {
         if (err.response) {
@@ -57,6 +68,8 @@ export const Home = () => {
         } else {
           toast(err.message);
         }
+        setNominees([]);
+        setCategory([]);
       });
   };
 
@@ -64,7 +77,7 @@ export const Home = () => {
     <div className="Home">
       <h1 className="logoText">FU Otuoke Election Portal</h1>
       <form onSubmit={handleCategorySubmit}>
-        {category.length > 0 ? (
+        {category.length > 0 && (
           <>
             <select onChange={(evt) => setSelect(evt.target.value)}>
               <option>Select a Categry</option>
@@ -77,14 +90,11 @@ export const Home = () => {
 
             <button type="submit">Get Nominees</button>
           </>
-        ) : (
-          <select>
-            <option>Select a Categry</option>
-          </select>
         )}
       </form>
 
       <div className="content">
+        {status && <h1>loading.....</h1>}
         {nominees.length > 0 && (
           <Nominees
             nominees={nominees}

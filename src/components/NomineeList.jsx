@@ -22,7 +22,7 @@ export const NomineeList = ({ nominees, hanldeNomineesSubmit }) => {
               value={val.id}
               onChange={(evt) => setUserId(evt.target.value)}
             />
-            {val.name}({val.department})
+            {val.name}({val.Category.name})
           </label>
         ))}
       </div>

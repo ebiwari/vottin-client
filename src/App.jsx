@@ -8,7 +8,7 @@ import { AssignPix } from "./pages/AssignPix";
 import { ListResult } from "./pages/ListResult";
 import "./App.css";
 
-export const URL_ADDRESS = "http://localhost:9090";
+export const URL_ADDRESS = "https://vottin-api.onrender.com/";
 
 function App() {
   return (
