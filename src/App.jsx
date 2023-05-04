@@ -10,15 +10,19 @@ import "./App.css";
 
 export const URL_ADDRESS = "https://vottin-api.onrender.com";
 
+//xport const URL_ADDRESS = "http://localhost:9090";
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<NomineeForm />} />
+
+          <Route path="/nominees" element={<Home />} />
           <Route path="/result" element={<Result />} />
           <Route path="/listing" element={<ListResult />} />
-          <Route path="/nominees" element={<NomineeForm />} />
+
           <Route path="/profile" element={<AssignPix />} />
         </Routes>
       </BrowserRouter>
