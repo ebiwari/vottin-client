@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SearchInput } from "../components/SearchInput";
 import { ViewResult } from "../components/ViewResult";
-import { URL_ADDRESS } from "../App";
+import { URL_ADDRESS } from "../components/Api";
 
 export const ListResult = () => {
   const [category, setCategory] = useState([]);

@@ -133,6 +133,18 @@ figure img {
   }
 }
 
+/* @media (max-width: 388px) {
+  .logoText {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .field {
+    display: flex;
+    justify-content: center;
+  }
+} */
+
 @media (max-width: 600px) {
   .logoText {
     font-size: 2rem;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
-import { URL_ADDRESS } from "../App";
+import { URL_ADDRESS } from "./Api";
 
 export const Profile = () => {
   const [files, setFiles] = useState(null);
@@ -46,15 +46,20 @@ export const Profile = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Matric No</label>
-        <input type="text" onChange={(evt) => setMatric(evt.target.value)} />
+        <input
+          type="text"
+          onChange={(evt) => setMatric(evt.target.value)}
+          placeholder="Matric(FUO/16/BCH/001)"
+        />
       </div>
 
-      <div>
+      <div style={{ margin: "1rem" }}>
         <input type="file" onChange={(evt) => setFiles(evt.target.files)} />
       </div>
 
-      <button>Submit Form</button>
+      <div>
+        <button>Submit Form</button>
+      </div>
     </form>
   );
 };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Category } from "./Category";
 import Axios from "axios";
-import { URL_ADDRESS } from "../App";
+import { URL_ADDRESS } from "./Api";
 
 export const RegistrationForm = ({ withCategory }) => {
   const [categoryId, setCategoryId] = useState("");

@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Nominees } from "../components/Nominees";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { URL_ADDRESS } from "../App";
+import { URL_ADDRESS } from "../components/Api";
 
 export const Home = () => {
   const [category, setCategory] = useState([]);

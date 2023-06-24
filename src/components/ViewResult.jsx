@@ -11,8 +11,6 @@ export const ViewResult = ({ results }) => {
             <p className="voteText">Totals Votes:{result.total}</p>
             <p className="voteText">{result.name}</p>
             <p>({result.matric})</p>
-
-            <p>({result.Category.name})</p>
           </div>
         </div>
       ))}

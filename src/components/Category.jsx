@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import { URL_ADDRESS } from "../App";
+import { URL_ADDRESS } from "./Api";
 
 export const Category = ({ title, handleCategoryId }) => {
   const [category, setCategory] = useState([]);

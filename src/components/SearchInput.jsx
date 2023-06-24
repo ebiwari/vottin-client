@@ -1,11 +1,16 @@
-import {useState} from 'react';
-export const SearchInput = ({ handleSearchInputSubmit, defaultTitle, title, category }) => {
+import { useState } from "react";
+export const SearchInput = ({
+  handleSearchInputSubmit,
+  defaultTitle,
+  title,
+  category,
+}) => {
   const [categoryId, setCategoryId] = useState(null);
 
   const handleCategorySubmit = (evt) => {
     evt.preventDefault();
     if (categoryId) {
-      handleSearchInputSubmit(categoryId);
+      handleSearchInputSubmit(Number(categoryId));
     }
   };
 
