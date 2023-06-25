@@ -29,8 +29,8 @@ export const FacultyNominees = ({
     })
       .then((resp) => {
         toast("You have voted Successfully");
-        // setNominees([]);
-        // setCategory([]);
+        setMatric("");
+        setLoginId("");
       })
       .catch((err) => {
         if (err.response) {
@@ -38,8 +38,8 @@ export const FacultyNominees = ({
         } else {
           toast(err.message);
         }
-        // setNominees([]);
-        // setCategory([]);
+        setMatric("");
+        setLoginId("");
       });
   };
   return (

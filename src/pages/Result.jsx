@@ -34,9 +34,11 @@ export const Result = () => {
     )
 
       .then((resp) => {
-        if (resp.statusText === "OK") {
-          setResults(resp.data);
-        }
+        setResults(resp.data);
+        // if (resp.statusText === "OK") {
+        //   console.log(resp.data);
+        //   setResults(resp.data);
+        // }
       })
       .catch((err) => {
         if (err.response) {
