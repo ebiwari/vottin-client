@@ -19,23 +19,30 @@ export const RegisterData = ({ data }) => {
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div>
-        <label>Full Name</label>
-        <input type="text" value={data.name} readOnly />
+        <input type="text" value={data.name} className="input" readOnly />
       </div>
 
-      <div>
-        <label>Phone</label>
-        <input type="text" value={data.phone ?? ""} readOnly />
+      <div className="input-margin">
+        <input
+          type="text"
+          value={data.phone ?? ""}
+          className="input"
+          readOnly
+        />
       </div>
 
-      <div>
-        <label>Email</label>
-        <input type="text" value={data.email ?? ""} readOnly />
+      <div className="input-margin">
+        <input
+          type="text"
+          value={data.email ?? ""}
+          className="input"
+          readOnly
+        />
       </div>
 
-      <div>
+      {/* <div>
         <label>Password</label>
         <input type="text" />
       </div>
@@ -67,11 +74,11 @@ export const RegisterData = ({ data }) => {
           <label>{verifyType}</label>
           <input type="text" />
         </div>
-      )}
+      )} */}
 
-      <div>
-        <button>Register</button>
+      <div className="input-margin">
+        <button className="button is-primary">Send Code to EMail</button>
       </div>
-    </>
+    </form>
   );
 };

@@ -29,14 +29,22 @@ export const Faculty = ({ handleFaculty }) => {
       {status ? (
         <h1>Loading...</h1>
       ) : (
-        <select onChange={handleSelect}>
-          <option>Select Faculty</option>
-          {faculty.map((val) => (
-            <option key={val.id} value={val.id}>
-              {val.name}
-            </option>
-          ))}
-        </select>
+        <div className="control has-icons-left select-margin">
+          <div className="select is-success has-icons-left">
+            <select onChange={handleSelect}>
+              <option>Select Faculty</option>
+              {faculty.map((val) => (
+                <option key={val.id} value={val.id}>
+                  {val.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="icon is-small is-left">
+            <i className="fas fa-globe"></i>
+          </div>
+        </div>
       )}
     </>
   );

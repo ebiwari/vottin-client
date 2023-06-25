@@ -44,9 +44,9 @@ export const FacultyNominees = ({
   };
   return (
     <form className="NomineeList" onSubmit={handleSubmit}>
-      <div className="List">
-        {nominees.map((val) => (
-          <label key={val.id} id="vote" className="label">
+      {nominees.map((val) => (
+        <div className="list" key={val.id}>
+          <label id="vote" className="radio">
             <input
               name="vote"
               id="vote"
@@ -56,28 +56,34 @@ export const FacultyNominees = ({
             />
             {val.name}({val.Category.name})
           </label>
-        ))}
-      </div>
+        </div>
+      ))}
 
-      <div className="field">
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Matric(FUO/16/BCH/1102)"
-          onChange={(evt) => setMatric(evt.target.value)}
-          value={matric}
-        />
+      <div className="columns">
+        <div className="column">
+          <input
+            type="text"
+            autoComplete="off"
+            placeholder="Matric(FUO/16/BCH/1102)"
+            className="input is-primary"
+            onChange={(evt) => setMatric(evt.target.value)}
+            value={matric}
+          />
+        </div>
 
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Votting Code"
-          onChange={(evt) => setLoginId(evt.target.value)}
-          value={loginId}
-        />
+        <div className="column">
+          <input
+            type="text"
+            autoComplete="off"
+            placeholder="Votting Code"
+            className="input is-primary"
+            onChange={(evt) => setLoginId(evt.target.value)}
+            value={loginId}
+          />
+        </div>
 
-        <div>
-          <button type="submit" className="homeButton">
+        <div className="column">
+          <button type="submit" className="button is-primary">
             Vote
           </button>
         </div>

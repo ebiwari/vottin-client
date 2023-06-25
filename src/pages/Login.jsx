@@ -12,6 +12,7 @@ import { Faculty } from "../components/login/Faculty";
 import { Category } from "../components/login/Category";
 
 import { FacultyNominees } from "../components/login/FacultyNominees";
+import "./Login.css";
 
 export const Login = () => {
   const [category, setCategory] = useState([]);
@@ -55,32 +56,60 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <div>
-        <Faculty handleFaculty={handleFaculty} />
-      </div>
+    <>
+      <div className="container is-fluid">
+        <div className="columns">
+          <div className="column login">
+            <Faculty handleFaculty={handleFaculty} />
 
-      <div>
-        {category.length > 0 && (
-          <Category
-            category={category}
-            handleLoginCategory={handleLoginCategory}
-          />
-        )}
-      </div>
+            {category.length > 0 && (
+              <Category
+                category={category}
+                handleLoginCategory={handleLoginCategory}
+              />
+            )}
 
-      {nominees.length > 0 && (
-        <div>
-          <FacultyNominees
-            nominees={nominees}
-            CategoryId={CategoryId.current}
-            FacultyId={FacultyId.current}
-            handleNominees={handleNominees}
-          />
+            {nominees.length > 0 && (
+              <div>
+                <FacultyNominees
+                  nominees={nominees}
+                  CategoryId={CategoryId.current}
+                  FacultyId={FacultyId.current}
+                  handleNominees={handleNominees}
+                />
+              </div>
+            )}
+
+            <ToastContainer />
+          </div>
+
+          <div className="column login content main-content">
+            <div className="right-content"></div>
+
+            <div className="reg-content">
+              <p>Student that did not recieve SMS</p>
+              <p>Can Click the Link below</p>
+              <h1>Get Vottin Code</h1>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
 
-      <ToastContainer />
-    </div>
+      <div className="footer">
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
+              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+              The website content is licensed{" "}
+              <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                @ICT
+              </a>
+              .
+            </p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
