@@ -10,6 +10,8 @@ import _ from "lodash";
 
 import "./Login.css";
 
+import { Link } from "react-router-dom";
+
 export const Register = () => {
   const [data, setData] = useState({});
 
@@ -73,12 +75,14 @@ export const Register = () => {
           </div>
 
           <div className="column login content main-content">
-            <div className="right-content"></div>
+            {/* <div className="right-content"></div> */}
 
             <div className="reg-content">
               <p>Student that did not recieve SMS</p>
               <p>Can Click the Link below</p>
-              <h1>Get Vottin Code</h1>
+              <Link to="/">
+                <h1>Votting Page</h1>
+              </Link>
             </div>
           </div>
         </div>

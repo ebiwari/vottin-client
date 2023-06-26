@@ -16,14 +16,14 @@ input[type="radio"] {
   padding: 0.2em;
 }
 
-.right-content {
+.main-content {
   background-image: url("../assets/logo.png");
 
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  /* filter: blur(5px);
+  -webkit-filter: blur(5px); */
 
   background-color: #fafafa;
-  height: 100%;
+  /* height: 100%; */
   /* background-image: linear-gradient(#fbfbfb, #fafafa); */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */

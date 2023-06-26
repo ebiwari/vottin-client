@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 
 import Axios from "axios";
 
+import { Link } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -82,12 +84,13 @@ export const Login = () => {
           </div>
 
           <div className="column login content main-content">
-            <div className="right-content"></div>
-
+            {/* <div className="right-content"></div> */}
             <div className="reg-content">
               <p>Student that did not recieve SMS</p>
               <p>Can Click the Link below</p>
-              <h1>Get Vottin Code</h1>
+              <Link to="/register">
+                <h1>Get Vottin Code</h1>
+              </Link>
             </div>
           </div>
         </div>
@@ -98,12 +101,7 @@ export const Login = () => {
           <div className="content has-text-centered">
             <p>
               <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
-              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-              The website content is licensed{" "}
-              <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                @ICT
-              </a>
-              .
+              <a href="#"></a>.<a href="#">@ICT</a>.
             </p>
           </div>
         </footer>

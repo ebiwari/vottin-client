@@ -22,8 +22,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/result" element={<Result />} />
 
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* 
         <Route path="/nominees" element={<NomineeForm />} />
         <Route path="/result" element={<Result />} />
         <Route path="/listing" element={<ListResult />} />
@@ -32,7 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
 
-        <Route path="/assigns" element={<AssignsNominees />} />
+        <Route path="/assigns" element={<AssignsNominees />} /> */}
       </Routes>
     </BrowserRouter>
   );
