@@ -15,8 +15,11 @@ export const FacultyNominees = ({
   const [matric, setMatric] = useState("");
   const [userId, setUserId] = useState("");
 
+  const [button, setButton] = useState(true);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setButton(false);
 
     console.log(CategoryId, FacultyId, userId, loginId);
 
@@ -29,8 +32,10 @@ export const FacultyNominees = ({
     })
       .then((resp) => {
         toast("You have voted Successfully");
-        setMatric("");
-        setLoginId("");
+        // setMatric("");
+        // setLoginId("");
+
+        setButton(true);
       })
       .catch((err) => {
         if (err.response) {
@@ -38,8 +43,9 @@ export const FacultyNominees = ({
         } else {
           toast(err.message);
         }
-        setMatric("");
-        setLoginId("");
+        // setMatric("");
+        // setLoginId("");
+        setButton(true);
       });
   };
   return (
@@ -83,9 +89,15 @@ export const FacultyNominees = ({
         </div>
 
         <div className="column">
-          <button type="submit" className="button is-primary">
-            Vote
-          </button>
+          {button ? (
+            <button type="submit" className="button is-primary">
+              Vote
+            </button>
+          ) : (
+            <button type="submit" className="button is-primary is-loading">
+              Vote
+            </button>
+          )}
         </div>
       </div>
     </form>

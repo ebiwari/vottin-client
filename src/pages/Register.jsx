@@ -21,11 +21,10 @@ export const Register = () => {
   };
 
   const validateButton = () => {
-    Axios.get(`${URL_ADDRESS}/api/login?matric=${Number(matric)}`)
+    Axios.get(`${URL_ADDRESS}/api/login?matric=${matric}`)
 
       .then((resp) => {
         if (resp.statusText === "OK") {
-          console.log(resp.data);
           setData(resp.data);
         }
       })
@@ -44,33 +43,34 @@ export const Register = () => {
     <>
       <div className="container is-fluid">
         <div className="columns">
-          <form onSubmit={handleSubmit} className="column login">
-            <div className="columns">
-              <div className="column">
-                <input
-                  type="text"
-                  onChange={(evt) => setMatric(evt.target.value)}
-                  value={matric}
-                  className="input is-primary"
-                  placeholder="FUO/16/BCH/001"
-                />
-              </div>
+          <div className="column login">
+            <form onSubmit={handleSubmit}>
+              <div className="columns">
+                <div className="column">
+                  <input
+                    type="text"
+                    onChange={(evt) => setMatric(evt.target.value)}
+                    value={matric}
+                    className="input is-primary"
+                    placeholder="FUO/16/BCH/001"
+                  />
+                </div>
 
-              <div className="column">
-                <button
-                  type="button"
-                  className="button is-primary"
-                  onClick={validateButton}
-                >
-                  Validate
-                </button>
+                <div className="column">
+                  <button
+                    type="button"
+                    className="button is-primary"
+                    onClick={validateButton}
+                  >
+                    Validate
+                  </button>
+                </div>
               </div>
-            </div>
-
+            </form>
             {!_.isEmpty(data) && <RegisterData data={data} />}
 
             <ToastContainer />
-          </form>
+          </div>
 
           <div className="column login content main-content">
             <div className="right-content"></div>

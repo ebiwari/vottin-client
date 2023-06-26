@@ -1,21 +1,31 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { URL_ADDRESS } from "./Api";
+
+import Axios from "axios";
 
 export const RegisterData = ({ data }) => {
   const [verifyType, setVerifyType] = useState(null);
+  const [button, setButton] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("your click the submit button");
+    setButton(false);
+    Axios.get(`${URL_ADDRESS}/api/login/mail?matric=${data.matric}`)
+      .then((resp) => {
+        setButton(true);
+        toast("Check Your Email for Votting Code");
+      })
+      .catch((err) => {
+        setButton(true);
+        toast(err);
+      });
   };
 
   const handleRadio = (evt) => {
     setVerifyType(evt.target.value);
-  };
-
-  const handleCode = (evt) => {
-    main(data.email, data.passcode).catch((err) => {
-      console.log(err);
-    });
   };
 
   return (
@@ -77,8 +87,16 @@ export const RegisterData = ({ data }) => {
       )} */}
 
       <div className="input-margin">
-        <button className="button is-primary">Send Code to EMail</button>
+        {button ? (
+          <button className="button is-primary">Send Code to EMail</button>
+        ) : (
+          <button className="button is-primary is-loading">
+            Send Code to EMail
+          </button>
+        )}
       </div>
+
+      <ToastContainer />
     </form>
   );
 };

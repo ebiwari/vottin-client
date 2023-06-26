@@ -51,9 +51,7 @@ export const Login = () => {
       });
   };
 
-  const handleNominees = (payload) => {
-    console.log(payload);
-  };
+  const handleNominees = (payload) => {};
 
   return (
     <>
