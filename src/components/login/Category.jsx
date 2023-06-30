@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import { toTitleCase } from "../util/Helper";
 
 export const Category = ({ category, handleLoginCategory }) => {
   const handleCategory = (evt) => {
@@ -13,7 +14,7 @@ export const Category = ({ category, handleLoginCategory }) => {
             <option value="">Select Category</option>
             {category.map((val) => (
               <option key={val.id} value={val.id}>
-                {val.name}
+                {toTitleCase(val.name)}
               </option>
             ))}
           </select>

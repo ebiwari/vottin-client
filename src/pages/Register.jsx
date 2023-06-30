@@ -46,29 +46,28 @@ export const Register = () => {
       <div className="container is-fluid">
         <div className="columns">
           <div className="column login">
-            <form onSubmit={handleSubmit}>
-              <div className="columns">
-                <div className="column">
-                  <input
-                    type="text"
-                    onChange={(evt) => setMatric(evt.target.value)}
-                    value={matric}
-                    className="input is-primary"
-                    placeholder="FUO/16/BCH/001"
-                  />
-                </div>
-
-                <div className="column">
-                  <button
-                    type="button"
-                    className="button is-primary"
-                    onClick={validateButton}
-                  >
-                    Validate
-                  </button>
-                </div>
+            <div className="columns">
+              <div className="column">
+                <input
+                  type="text"
+                  onChange={(evt) => setMatric(evt.target.value)}
+                  value={matric}
+                  className="input is-primary"
+                  placeholder="FUO/16/BCH/001"
+                />
               </div>
-            </form>
+
+              <div className="column">
+                <button
+                  type="button"
+                  className="button is-primary"
+                  onClick={validateButton}
+                >
+                  Validate
+                </button>
+              </div>
+            </div>
+
             {!_.isEmpty(data) && <RegisterData data={data} />}
 
             <ToastContainer />
@@ -93,8 +92,7 @@ export const Register = () => {
           <div className="content has-text-centered">
             <p>
               <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
-              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-              The website content is licensed{" "}
+              <a href="http://opensource.org/licenses/mit-license.php"></a>.
               <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
                 @ICT
               </a>

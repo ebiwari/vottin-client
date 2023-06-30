@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Axios from "axios";
 import { URL_ADDRESS } from "../../components/Api";
+import { toTitleCase } from "../util/Helper";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -60,7 +61,7 @@ export const FacultyNominees = ({
               value={val.id}
               onChange={(evt) => setUserId(evt.target.value)}
             />
-            {val.name}({val.Category.name})
+            {toTitleCase(val.name)}({toTitleCase(val.Category.name)})
           </label>
         </div>
       ))}

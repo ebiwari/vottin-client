@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { URL_ADDRESS } from "../Api";
 
+import { toTitleCase } from "../util/Helper";
+
 export const Faculty = ({ handleFaculty }) => {
   const [faculty, setFaculty] = useState([]);
   const [status, setStatus] = useState(true);
@@ -35,7 +37,7 @@ export const Faculty = ({ handleFaculty }) => {
               <option>Select Faculty</option>
               {faculty.map((val) => (
                 <option key={val.id} value={val.id}>
-                  {val.name}
+                  {toTitleCase(val.name)}
                 </option>
               ))}
             </select>
