@@ -11,7 +11,7 @@ export const Category = ({ category, handleLoginCategory }) => {
       <div className="control has-icons-left select-margin">
         <div className="select is-success has-icons-left">
           <select onChange={handleCategory}>
-            <option value="">Select Category</option>
+            <option value=" ">Select Category</option>
             {category.map((val) => (
               <option key={val.id} value={val.id}>
                 {toTitleCase(val.name)}

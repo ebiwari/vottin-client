@@ -20,9 +20,7 @@ export const AssignsNominees = () => {
   const CategoryId = useRef("");
 
   const handleFaculty = (payload) => {
-    Axios.get(
-      `${URL_ADDRESS}/api/category/faculty?FacultyId=${Number(payload)}`
-    )
+    Axios.get(`${URL_ADDRESS}/api/category/faculty?FacultyId=${payload}`)
       .then((resp) => {
         setCategory(resp.data);
         FacultyId.current = payload;
@@ -48,12 +46,12 @@ export const AssignsNominees = () => {
     })
 
       .then((resp) => {
-        toast("You have voted Successfully");
+        toast("Nominees Creation is Successful");
         setCategory([]);
         setMatric("");
         setDepartment("");
         setFullName("");
-        handleFaculty(Number(FacultyId.current));
+        handleFaculty(FacultyId.current);
       })
       .catch((err) => {
         if (err.response) {
