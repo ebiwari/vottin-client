@@ -45,7 +45,7 @@ export const Login = () => {
     )
       .then((resp) => {
         setNominees(resp.data);
-        console.log(nominees);
+        // console.log(nominees);
         CategoryId.current = payload;
       })
       .catch((err) => {

@@ -15,12 +15,13 @@ export const RegisterData = ({ data }) => {
     setButton(false);
     Axios.get(`${URL_ADDRESS}/api/login/mail?matric=${data.matric}`)
       .then((resp) => {
+        console.log(resp);
         setButton(true);
         toast("Check Your Email for Votting Code");
       })
       .catch((err) => {
         setButton(true);
-        toast(err);
+        toast(err.message);
       });
   };
 
@@ -37,7 +38,7 @@ export const RegisterData = ({ data }) => {
       <div className="input-margin">
         <input
           type="text"
-          value={data.phone ?? ""}
+          value={data.phone ? data.phone.replace(/(?<=\d{7})\d/g, "*") : ""}
           className="input"
           readOnly
         />

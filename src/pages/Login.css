@@ -30,18 +30,14 @@ input[type="radio"] {
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-/* .main-content {
-  position: relative;
-}
-
 .reg-content {
-  position: absolute;
-  left: 6%;
-  top: 6%;
-  width: 100%;
-  background-color: rgba(256, 256, 256, 0.5);
+  background-color: #cb9311;
+
+  opacity: 30%;
+  color: #000;
+  width: 40%;
   padding: 1rem;
-} */
+}
 
 .input-margin {
   margin-bottom: 1rem;

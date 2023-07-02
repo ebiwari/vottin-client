@@ -16,6 +16,7 @@ export const Register = () => {
   const [data, setData] = useState({});
 
   const [matric, setMatric] = useState("");
+  const [button, setButton] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,12 +24,15 @@ export const Register = () => {
   };
 
   const validateButton = () => {
+    setButton(false);
     Axios.get(`${URL_ADDRESS}/api/login?matric=${matric}`)
 
       .then((resp) => {
-        if (resp.statusText === "OK") {
-          setData(resp.data);
-        }
+        setButton(true);
+        setData(resp.data);
+        // if (resp.statusText === "OK") {
+        //   setData(resp.data);
+        // }
       })
       .catch((err) => {
         if (err.response) {
@@ -36,7 +40,7 @@ export const Register = () => {
         } else {
           toast(err.message);
         }
-
+        setButton(true);
         setData({});
       });
   };
@@ -57,7 +61,7 @@ export const Register = () => {
                 />
               </div>
 
-              <div className="column">
+              {/* <div className="column">
                 <button
                   type="button"
                   className="button is-primary"
@@ -65,6 +69,22 @@ export const Register = () => {
                 >
                   Validate
                 </button>
+              </div> */}
+
+              <div className="column">
+                {button ? (
+                  <button
+                    type="button"
+                    className="button is-primary"
+                    onClick={validateButton}
+                  >
+                    Validate
+                  </button>
+                ) : (
+                  <button className="button is-primary is-loading">
+                    Validate
+                  </button>
+                )}
               </div>
             </div>
 
