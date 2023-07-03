@@ -22,16 +22,18 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/" element={<Home />} /> */}
 
-        <Route path="/nominees" element={<NomineeForm />} />
+        {/* <Route path="/nominees" element={<NomineeForm />} />
         <Route path="/result" element={<Result />} />
         <Route path="/listing" element={<ListResult />} />
         <Route path="/profile" element={<AssignPix />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/assigns" element={<AssignsNominees />} />
+        <Route path="/assigns" element={<AssignsNominees />} /> */}
       </Routes>
     </BrowserRouter>
   );
