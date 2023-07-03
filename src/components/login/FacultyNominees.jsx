@@ -11,6 +11,7 @@ export const FacultyNominees = ({
   CategoryId,
   FacultyId,
   handleNominees,
+  handleEndVote,
 }) => {
   const [loginId, setLoginId] = useState("");
   const [matric, setMatric] = useState("");
@@ -40,7 +41,11 @@ export const FacultyNominees = ({
       })
       .catch((err) => {
         if (err.response) {
-          toast(err.response.data.error);
+          if (err.response.data.error === "end") {
+            handleEndVote();
+          } else {
+            toast(err.response.data.error);
+          }
         } else {
           toast(err.message);
         }

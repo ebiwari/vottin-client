@@ -19,6 +19,7 @@ import "./Login.css";
 export const Login = () => {
   const [category, setCategory] = useState([]);
   const [nominees, setNominees] = useState([]);
+  const [end, setEnd] = useState(false);
 
   const FacultyId = useRef("");
 
@@ -55,6 +56,45 @@ export const Login = () => {
 
   const handleNominees = (payload) => {};
 
+  const handleEndVote = () => {
+    setEnd(true);
+  };
+
+  if (end) {
+    return (
+      <>
+        <div className="container is-fluid">
+          <div className="columns">
+            <div className="column content login">
+              <h1>Votting has Endend..</h1>
+            </div>
+
+            <div className="column login content main-content">
+              <div className="reg-content">
+                <p>Student that did not recieve SMS</p>
+                <p>Can Click the Link below</p>
+                <Link to="/register">
+                  <h1>Get Vottin Code</h1>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer">
+          <footer className="footer">
+            <div className="content has-text-centered">
+              <p>
+                <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
+                <a href="#"></a>.<a href="#">@ICT</a>.
+              </p>
+            </div>
+          </footer>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="container is-fluid">
@@ -76,6 +116,7 @@ export const Login = () => {
                   CategoryId={CategoryId.current}
                   FacultyId={FacultyId.current}
                   handleNominees={handleNominees}
+                  handleEndVote={handleEndVote}
                 />
               </div>
             )}
