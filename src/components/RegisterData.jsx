@@ -38,7 +38,9 @@ export const RegisterData = ({ data }) => {
       <div className="input-margin">
         <input
           type="text"
-          value={data.phone ? data.phone.replace(/(?<=\d{7})\d/g, "*") : ""}
+          value={
+            data.phone ? "0" + data.phone.replace(/(?<=\d{7})\d/g, "*") : ""
+          }
           className="input"
           readOnly
         />
