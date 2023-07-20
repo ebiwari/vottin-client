@@ -40,6 +40,7 @@ export const FacultyNominees = ({
         setButton(true);
       })
       .catch((err) => {
+        console.log(err);
         if (err.response) {
           if (err.response.data.error === "end") {
             handleEndVote();

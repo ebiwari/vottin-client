@@ -44,22 +44,48 @@ export const Profile = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type="text"
-          onChange={(evt) => setMatric(evt.target.value)}
-          placeholder="Matric(FUO/16/BCH/001)"
-        />
+    <>
+      <div className="container is-fluid">
+        <div className="columns">
+          <div className="column content">
+            <h1>Update Picture</h1>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="columns">
+          <div className="column">
+            <input
+              type="text"
+              className="input"
+              onChange={(evt) => setMatric(evt.target.value)}
+              placeholder="Matric(FUO/16/BCH/001)"
+            />
+          </div>
+
+          <div className="column">
+            <input
+              className="input"
+              type="file"
+              onChange={(evt) => setFiles(evt.target.files)}
+            />
+          </div>
+
+          <div className="column">
+            <button className="button">Submit Form</button>
+          </div>
+        </form>
       </div>
 
-      <div style={{ margin: "1rem" }}>
-        <input type="file" onChange={(evt) => setFiles(evt.target.files)} />
+      <div className="footer">
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
+              <a href="#"></a>.<a href="#">@ICT</a>.
+            </p>
+          </div>
+        </footer>
       </div>
-
-      <div>
-        <button>Submit Form</button>
-      </div>
-    </form>
+    </>
   );
 };

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Axios from "axios";
 
@@ -21,28 +21,37 @@ export const Login = () => {
   const [nominees, setNominees] = useState([]);
   const [end, setEnd] = useState(false);
 
-  const FacultyId = useRef("");
-
+  const FacultyId = 1;
   const CategoryId = useRef("");
 
-  const handleFaculty = (payload) => {
-    Axios.get(
-      `${URL_ADDRESS}/api/category/faculty?FacultyId=${Number(payload)}`
-    )
+  useEffect(() => {
+    Axios.get(`${URL_ADDRESS}/api/category/faculty?FacultyId=${FacultyId}`)
       .then((resp) => {
         setCategory(resp.data);
-        FacultyId.current = payload;
       })
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, []);
+
+  // const handleFaculty = (payload) => {
+  //   Axios.get(
+  //     `${URL_ADDRESS}/api/category/faculty?FacultyId=${Number(payload)}`
+  //   )
+  //     .then((resp) => {
+  //       setCategory(resp.data);
+  //       FacultyId.current = payload;
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleLoginCategory = (payload) => {
     Axios.get(
       `${URL_ADDRESS}/api/users/candidate?CategoryId=${Number(
         payload
-      )}&FacultyId=${Number(FacultyId.current)}`
+      )}&FacultyId=${FacultyId}`
     )
       .then((resp) => {
         setNominees(resp.data);
@@ -66,7 +75,7 @@ export const Login = () => {
         <div className="container is-fluid">
           <div className="columns">
             <div className="column content login">
-              <h1>Votting has Endend..</h1>
+              <h1>Votting has End....</h1>
             </div>
 
             <div className="column login content main-content">
@@ -100,13 +109,15 @@ export const Login = () => {
       <div className="container is-fluid">
         <div className="columns">
           <div className="column login">
-            <Faculty handleFaculty={handleFaculty} />
+            {/* <Faculty handleFaculty={handleFaculty} /> */}
 
-            {category.length > 0 && (
+            {category.length > 0 ? (
               <Category
                 category={category}
                 handleLoginCategory={handleLoginCategory}
               />
+            ) : (
+              <h1 className="content">Loading...</h1>
             )}
 
             {nominees.length > 0 && (
@@ -114,7 +125,7 @@ export const Login = () => {
                 <FacultyNominees
                   nominees={nominees}
                   CategoryId={CategoryId.current}
-                  FacultyId={FacultyId.current}
+                  FacultyId={FacultyId}
                   handleNominees={handleNominees}
                   handleEndVote={handleEndVote}
                 />

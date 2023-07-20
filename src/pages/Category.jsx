@@ -31,6 +31,7 @@ export const Category = () => {
         setCategory("");
       })
       .catch((err) => {
+        console.log(err);
         if (err.response) {
           toast(err.response.data.error);
         } else {
@@ -42,25 +43,47 @@ export const Category = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <Faculty handleFaculty={handleFaculty} />
+    <>
+      <div className="container is-fluid">
+        <div className="columns">
+          <div className="column content">
+            <h1>FU Otuoke Election Portal</h1>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="columns">
+          <div className="column">
+            <Faculty handleFaculty={handleFaculty} />
+          </div>
+
+          <div className="column">
+            <input
+              type="text"
+              onChange={(evt) => setCategory(evt.target.value)}
+              value={category}
+              placeholder="Category Name"
+              className="input"
+            />
+          </div>
+
+          <div className="column">
+            <button className="button">Create Category</button>
+          </div>
+
+          <ToastContainer />
+        </form>
       </div>
 
-      <div>
-        <input
-          type="text"
-          onChange={(evt) => setCategory(evt.target.value)}
-          value={category}
-          placeholder="Category Name"
-        />
+      <div className="footer">
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
+              <a href="#"></a>.<a href="#">@ICT</a>.
+            </p>
+          </div>
+        </footer>
       </div>
-
-      <div>
-        <button>Create Category</button>
-      </div>
-
-      <ToastContainer />
-    </form>
+    </>
   );
 };

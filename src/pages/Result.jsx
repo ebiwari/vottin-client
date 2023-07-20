@@ -8,29 +8,27 @@ import { ViewResult } from "../components/ViewResult";
 
 import { Faculty } from "../components/login/Faculty";
 
-import { URL_ADDRESS } from "../components/Api";
+import { URL_ADDRESS, FacultyId } from "../components/Api";
 
 export const Result = () => {
   const [category, setCategory] = useState([]);
   const [results, setResults] = useState([]);
 
-  const FacultyId = useRef("");
-
-  // useEffect(() => {
-  //   Axios.get(`${URL_ADDRESS}/api/category`)
-  //     .then((resp) => {
-  //       if (resp.statusText === "OK") {
-  //         setCategory(resp.data);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    Axios.get(`${URL_ADDRESS}/api/category`)
+      .then((resp) => {
+        if (resp.statusText === "OK") {
+          setCategory(resp.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleSearchInputSubmit = (categoryId) => {
     Axios.get(
-      `${URL_ADDRESS}/api/result?categoryId=${categoryId}&facultyId=${FacultyId.current}`
+      `${URL_ADDRESS}/api/result?categoryId=${categoryId}&facultyId=${FacultyId}`
     )
 
       .then((resp) => {
@@ -49,41 +47,43 @@ export const Result = () => {
       });
   };
 
-  const handleFaculty = (payload) => {
-    Axios.get(
-      `${URL_ADDRESS}/api/category/faculty?FacultyId=${Number(payload)}`
-    )
-      .then((resp) => {
-        setCategory(resp.data);
-        FacultyId.current = Number(payload);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
-    <div className="Result">
-      <h1 className="logoText">FU Otuoke Election Portal</h1>
+    <>
+      <div className="container is-fluid">
+        <div className="columns">
+          <div className="column content">
+            <h1>FU Otuoke Election Portal</h1>
+          </div>
+        </div>
 
-      <div>
-        <Faculty handleFaculty={handleFaculty} />
-      </div>
+        {category.length > 0 ? (
+          <SearchInput
+            handleSearchInputSubmit={handleSearchInputSubmit}
+            category={category}
+            defaultTitle="Select Result"
+            title="Get Results"
+          />
+        ) : (
+          <h1 className="content">Loading...</h1>
+        )}
 
-      {category.length > 0 && (
-        <SearchInput
-          handleSearchInputSubmit={handleSearchInputSubmit}
-          category={category}
-          defaultTitle="Select Result"
-          title="Get Results"
-        />
-      )}
-
-      <div className="content">
-        {results.length > 0 && <ViewResult results={results} />}
+        <div className="columns">
+          {results.length > 0 && <ViewResult results={results} />}
+        </div>
 
         <ToastContainer />
       </div>
-    </div>
+
+      <div className="footer">
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <a href="https://fuotuoke.edu.ng">Federal Unv Otuoke</a>
+              <a href="#"></a>.<a href="#">@ICT</a>.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
