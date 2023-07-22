@@ -9,9 +9,9 @@ import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { Category } from "./pages/Category";
 import { URL_ADDRESS } from "./components/Api";
-import "./App.css";
 
 import "bulma/css/bulma.min.css";
+import "./App.css";
 import { AssignsNominees } from "./pages/AssignsNominees";
 
 //export const URL_ADDRESS = "https://vottin-api.onrender.com";

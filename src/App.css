@@ -1,7 +1,5 @@
 figure img {
-  width: 200px;
+  width: px;
   border-radius: 50%;
   border: 2px solid black;
 }
-align-items: center;
-flex-wrap: wrap;
