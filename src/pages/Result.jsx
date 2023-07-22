@@ -15,11 +15,9 @@ export const Result = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    Axios.get(`${URL_ADDRESS}/api/category`)
+    Axios.get(`${URL_ADDRESS}/api/category/faculty?FacultyId=${FacultyId}`)
       .then((resp) => {
-        if (resp.statusText === "OK") {
-          setCategory(resp.data);
-        }
+        setCategory(resp.data);
       })
       .catch((err) => {
         console.log(err);

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { URL_ADDRESS } from "../components/Api";
+import { URL_ADDRESS, FacultyId } from "../components/Api";
 import _ from "lodash";
 import { Faculty } from "../components/login/Faculty";
 
@@ -21,7 +21,6 @@ export const Login = () => {
   const [nominees, setNominees] = useState([]);
   const [end, setEnd] = useState(false);
 
-  const FacultyId = 1;
   const CategoryId = useRef("");
 
   useEffect(() => {
@@ -33,19 +32,6 @@ export const Login = () => {
         console.log(err);
       });
   }, []);
-
-  // const handleFaculty = (payload) => {
-  //   Axios.get(
-  //     `${URL_ADDRESS}/api/category/faculty?FacultyId=${Number(payload)}`
-  //   )
-  //     .then((resp) => {
-  //       setCategory(resp.data);
-  //       FacultyId.current = payload;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const handleLoginCategory = (payload) => {
     Axios.get(
