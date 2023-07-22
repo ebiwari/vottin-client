@@ -5,16 +5,20 @@ export const ViewResult = ({ results }) => {
       {results.map((result, index) => (
         <div
           key={index}
-          style={{ textAlign: "center" }}
-          className="column is-4 resultContent"
+          className="column is-6 resultContent is-justify-content-center"
         >
-          <figure>
-            <img src={result.url ? result.url : URLIMAGE} />
-          </figure>
-          <div className="resultTotal">
-            <p className="voteText">Totals Votes:{result.total}</p>
-            <p className="voteText">{result.name.toUpperCase()}</p>
-            <p>({result.matric.toUpperCase()})</p>
+          <div className="resultTotal is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+            <figure className="is-1by1">
+              <img
+                className="is-rounded"
+                src={result.url ? result.url : URLIMAGE}
+              />
+            </figure>
+            <div className="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+              <p className="voteText">Totals Votes:{result.total}</p>
+              <p className="voteText">{result.name.toUpperCase()}</p>
+              <p>({result.matric.toUpperCase()})</p>
+            </div>
           </div>
         </div>
       ))}
