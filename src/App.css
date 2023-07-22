@@ -1,5 +1,10 @@
 figure img {
-  width: px;
+  height: 300px;
   border-radius: 50%;
   border: 2px solid black;
+}
+
+.vote-result p,
+.vote-result h2 {
+  margin: 0;
 }

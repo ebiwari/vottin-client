@@ -14,9 +14,9 @@ export const ViewResult = ({ results }) => {
                 src={result.url ? result.url : URLIMAGE}
               />
             </figure>
-            <div className="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-              <p className="voteText">Totals Votes:{result.total}</p>
-              <p className="voteText">{result.name.toUpperCase()}</p>
+            <div className="content vote-result is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+              <h2>Totals Votes:{result.total}</h2>
+              <p>{result.name.toUpperCase()}</p>
               <p>({result.matric.toUpperCase()})</p>
             </div>
           </div>
