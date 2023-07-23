@@ -17,7 +17,6 @@ export const Result = () => {
   useEffect(() => {
     Axios.get(`${URL_ADDRESS}/api/category/faculty?FacultyId=${FacultyId}`)
       .then((resp) => {
-        console.log(resp.data);
         setCategory(resp.data);
       })
       .catch((err) => {

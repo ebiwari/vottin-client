@@ -14,9 +14,6 @@ import "bulma/css/bulma.min.css";
 import "./App.css";
 import { AssignsNominees } from "./pages/AssignsNominees";
 
-//export const URL_ADDRESS = "https://vottin-api.onrender.com";
-//export const URL_ADDRESS = "http://localhost:9090";
-
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* <Route path="/" element={<Home />} /> */}
-
+        {/* 
         <Route path="/nominees" element={<NomineeForm />} />
         <Route path="/result" element={<Result />} />
         <Route path="/listing" element={<ListResult />} />
@@ -34,7 +31,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/assigns" element={<AssignsNominees />} />
+        <Route path="/assigns" element={<AssignsNominees />} /> */}
       </Routes>
     </BrowserRouter>
   );
